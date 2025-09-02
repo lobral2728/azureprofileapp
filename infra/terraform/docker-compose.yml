@@ -1,0 +1,12 @@
+services:
+  tf:
+    build:
+      context: ../..    # repo root
+      dockerfile: infra/terraform/Dockerfile
+    image: grinbin/az-tf:dev
+    working_dir: /work
+    volumes:
+      - ../..:/work
+      # uncomment to persist Azure CLI login:
+      # - ${HOME}/.azure:/root/.azure
+    tty: true
